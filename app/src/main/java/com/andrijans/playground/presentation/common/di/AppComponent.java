@@ -1,5 +1,6 @@
 package com.andrijans.playground.presentation.common.di;
 
+import com.andrijans.playground.framework.api.ApiModule;
 import com.andrijans.playground.presentation.mainactivity.MainActivityModule;
 import com.andrijans.playground.presentation.mainactivity.MainActivitySComponent;
 
@@ -12,7 +13,8 @@ import dagger.Component;
  */
 @Singleton
 @Component (
-        modules = {AppModule.class})
+        modules = {AppModule.class,
+                ApiModule.class})
 public interface AppComponent {
     MainActivitySComponent plus(MainActivityModule module);
 }
