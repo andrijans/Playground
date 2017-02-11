@@ -50,4 +50,7 @@ public interface IApiService {
     @GET("movie/now_playing")
     Observable<ListMoviesResult> getNowPlaying();
 
+    @GET("tv/popular")
+    Observable<ListMoviesResult> getPopularShows();
+
 }

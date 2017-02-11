@@ -20,7 +20,13 @@ public class MediaContract {
         void bindView(MediaContract.View view);
     }
 
-    public interface ShowsInteractor extends IBaseInteractor{}
+    public interface MoviesPresenter extends Presenter{}
+
+    public interface ShowsPresenter extends Presenter{}
+
+    public interface ShowsInteractor extends IBaseInteractor{
+        void getPopularShows(Listener<ListMoviesResult> listener);
+    }
 
     public interface MoviesInteractor extends IBaseInteractor{
         void getNowPlayingMovies(Listener<ListMoviesResult> listener);

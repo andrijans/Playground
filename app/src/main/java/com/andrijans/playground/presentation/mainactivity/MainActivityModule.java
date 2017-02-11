@@ -35,13 +35,13 @@ public class MainActivityModule {
 
     @ViewScope
     @Provides
-    ShowsListPresenterImpl provideShowsListPresenter(MediaContract.ShowsInteractor interactor) {
+    MediaContract.ShowsPresenter provideShowsListPresenter(MediaContract.ShowsInteractor interactor) {
         return new ShowsListPresenterImpl(interactor);
     }
 
     @ViewScope
     @Provides
-    MoviesListPresenterImpl provideMoviesListPresenter(MediaContract.MoviesInteractor interactor) {
+    MediaContract.MoviesPresenter provideMoviesListPresenter(MediaContract.MoviesInteractor interactor) {
         return new MoviesListPresenterImpl(interactor);
     }
 

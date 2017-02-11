@@ -8,7 +8,7 @@ import com.andrijans.playground.presentation.common.contract.MediaContract;
  * Created by andrijanstankovic on 11/02/2017.
  */
 
-public class MoviesListPresenterImpl implements MediaContract.Presenter {
+public class MoviesListPresenterImpl implements MediaContract.MoviesPresenter {
     MediaContract.View view;
     MediaContract.MoviesInteractor interactor;
 

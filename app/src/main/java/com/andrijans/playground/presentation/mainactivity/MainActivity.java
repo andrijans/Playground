@@ -19,10 +19,9 @@ import android.widget.TextView;
 import com.andrijans.playground.R;
 import com.andrijans.playground.presentation.App;
 import com.andrijans.playground.presentation.BaseActivity;
+import com.andrijans.playground.presentation.common.contract.MediaContract;
 import com.andrijans.playground.presentation.common.views.MediaListView;
 import com.andrijans.playground.presentation.common.views.NonSwipeableViewPager;
-import com.andrijans.playground.presentation.moviesList.MoviesListPresenterImpl;
-import com.andrijans.playground.presentation.showslist.ShowsListPresenterImpl;
 
 import javax.inject.Inject;
 
@@ -47,9 +46,9 @@ public class MainActivity extends BaseActivity implements MainActivityContract.V
     @Inject
     MainActivityContract.Presenter presenter;
     @Inject
-    MoviesListPresenterImpl moviesListPresenter;
+    MediaContract.MoviesPresenter moviesListPresenter;
     @Inject
-    ShowsListPresenterImpl showsListPresenter;
+    MediaContract.ShowsPresenter showsListPresenter;
 
 
     public static Intent getCallingIntent(Context context) {
