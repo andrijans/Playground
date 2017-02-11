@@ -5,7 +5,9 @@ package com.andrijans.playground.presentation.common.constants;
  */
 
 public class Constants {
-    public static String API_URL="https://omgvamp-hearthstone-v1.p.mashape.com";
-    public static String HEADER_KEY="X-Mashape-Key";
-    public static String HEADER_VALUE="nYyQfarv1gmshKk9Zc3e0uEzzFHmp1vIVDYjsnO9vyhVBOpwCh";
+    public static String API_URL="http://api.themoviedb.org/3/";
+    public static String API_KEY_NAME="api_key";
+    public static String API_KEY="e0bdcc87bbd9d62aee43916fc07da930";
+    public static final String IMAGE_URL_BACKDROP = "http://image.tmdb.org/t/p/w1280";
+    public static final String IMAGE_URL_POSTER = "http://image.tmdb.org/t/p/w500";
 }

@@ -18,6 +18,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        app = this;
         initAppComponent();
     }
 
@@ -33,7 +34,7 @@ public class App extends Application {
         else return app;
     }
 
-    public static AppComponent getAppComponent() {
+    public AppComponent getAppComponent() {
         return appComponent;
     }
 }

@@ -15,8 +15,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected Navigator navigator;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         injectView();
     }
 

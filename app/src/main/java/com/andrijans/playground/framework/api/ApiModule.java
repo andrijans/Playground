@@ -9,7 +9,6 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -26,16 +25,15 @@ public class ApiModule {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
+        AuthenticationInterceptor authenticationInterceptor = new AuthenticationInterceptor();
 
         okhttp3.OkHttpClient httpClient = new okhttp3.OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
+                .addInterceptor(authenticationInterceptor)
                 .connectTimeout(20 * 1000, TimeUnit.MILLISECONDS)
                 .readTimeout(30 * 1000, TimeUnit.MILLISECONDS)
                 .build();
-        httpClient.networkInterceptors().add(chain -> {
-            Request request = chain.request().newBuilder().addHeader(Constants.HEADER_KEY, Constants.HEADER_VALUE).build();
-            return chain.proceed(request);
-        });
+
         return httpClient;
     }
 
