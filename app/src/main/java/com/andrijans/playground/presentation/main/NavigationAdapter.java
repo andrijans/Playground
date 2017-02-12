@@ -1,4 +1,4 @@
-package com.andrijans.playground.presentation.mainactivity;
+package com.andrijans.playground.presentation.main;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

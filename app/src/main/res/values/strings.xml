@@ -7,4 +7,5 @@
         <item>Movies</item>
         <item>Tv Shows</item>
     </string-array>
+    <string name="title_activity_details">DetailsActivity</string>
 </resources>

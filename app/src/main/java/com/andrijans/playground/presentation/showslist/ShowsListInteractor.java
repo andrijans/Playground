@@ -3,7 +3,7 @@ package com.andrijans.playground.presentation.showslist;
 import com.andrijans.playground.framework.api.IApiService;
 import com.andrijans.playground.framework.api.interactor.Listener;
 import com.andrijans.playground.framework.api.interactor.SubscriptionBag;
-import com.andrijans.playground.framework.api.model.ListMoviesResult;
+import com.andrijans.playground.framework.api.model.ListMediaResult;
 import com.andrijans.playground.presentation.common.contract.MediaContract;
 
 import javax.inject.Inject;
@@ -28,7 +28,7 @@ public class ShowsListInteractor implements MediaContract.ShowsInteractor {
     }
 
     @Override
-    public void getPopularShows(Listener<ListMoviesResult> listener) {
+    public void getPopularShows(Listener<ListMediaResult> listener) {
         subscriptionBag.add(apiService.getPopularShows(),listener);
     }
 }

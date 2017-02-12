@@ -1,4 +1,4 @@
-package com.andrijans.playground.presentation.mainactivity;
+package com.andrijans.playground.presentation.main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.andrijans.playground.R;
+import com.andrijans.playground.framework.api.model.MediaItemDetails;
 import com.andrijans.playground.presentation.App;
 import com.andrijans.playground.presentation.BaseActivity;
 import com.andrijans.playground.presentation.common.contract.MediaContract;
@@ -78,6 +79,8 @@ public class MainActivity extends BaseActivity implements MainActivityContract.V
 
         moviesListPresenter.bindView(moviesListView);
         showsListPresenter.bindView(showsListView);
+
+        presenter.bindChildPresenters(moviesListPresenter,showsListPresenter);
 
         mVpMain.setAdapter(new MainPagerAdapter(new View[]{moviesListView, showsListView}));
 
@@ -143,5 +146,10 @@ public class MainActivity extends BaseActivity implements MainActivityContract.V
     @Override
     public void setSelectedNavigationPosition(int position) {
         navigationAdapter.setSelectedPosition(position);
+    }
+
+    @Override
+    public void navigateToDetailsScreen(MediaItemDetails details, boolean shouldFinish) {
+        navigator.navigateToDetailsScreen(MainActivity.this,details,shouldFinish);
     }
 }

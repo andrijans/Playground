@@ -9,6 +9,8 @@ import android.widget.ImageView;
 
 import com.andrijans.playground.R;
 import com.andrijans.playground.framework.api.model.BaseModel;
+import com.andrijans.playground.framework.api.model.MediaItemDetails;
+import com.andrijans.playground.presentation.common.contract.MediaContract;
 import com.andrijans.playground.presentation.common.utils.Utils;
 import com.bumptech.glide.Glide;
 
@@ -23,10 +25,12 @@ import butterknife.ButterKnife;
 
 public class MediaListAdapter extends RecyclerView.Adapter<MediaListAdapter.ViewHolder> {
     private Context context;
-    private List<BaseModel> data;
+    private List<MediaItemDetails> data;
+    private MediaContract.Presenter presenter;
 
-    public MediaListAdapter(List<BaseModel> data) {
+    public MediaListAdapter(MediaContract.Presenter presenter, List<MediaItemDetails> data) {
         this.data = data;
+        this.presenter=presenter;
     }
 
     @Override
@@ -39,6 +43,7 @@ public class MediaListAdapter extends RecyclerView.Adapter<MediaListAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Glide.with(context).load(Utils.getPosterUri(data.get(position).getPosterPath())).into(holder.mIvPoster);
+        holder.mIvPoster.setOnClickListener(view -> presenter.mediaItemClicked(data.get(position)));
     }
 
     @Override

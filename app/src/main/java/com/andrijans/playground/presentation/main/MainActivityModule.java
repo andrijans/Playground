@@ -1,5 +1,6 @@
-package com.andrijans.playground.presentation.mainactivity;
+package com.andrijans.playground.presentation.main;
 
+import com.andrijans.playground.framework.contract.ILogger;
 import com.andrijans.playground.presentation.common.contract.MediaContract;
 import com.andrijans.playground.presentation.common.di.ViewScope;
 import com.andrijans.playground.presentation.moviesList.MoviesListInteractor;
@@ -35,14 +36,14 @@ public class MainActivityModule {
 
     @ViewScope
     @Provides
-    MediaContract.ShowsPresenter provideShowsListPresenter(MediaContract.ShowsInteractor interactor) {
-        return new ShowsListPresenterImpl(interactor);
+    MediaContract.ShowsPresenter provideShowsListPresenter(ILogger logger, MediaContract.ShowsInteractor interactor) {
+        return new ShowsListPresenterImpl(logger,interactor);
     }
 
     @ViewScope
     @Provides
-    MediaContract.MoviesPresenter provideMoviesListPresenter(MediaContract.MoviesInteractor interactor) {
-        return new MoviesListPresenterImpl(interactor);
+    MediaContract.MoviesPresenter provideMoviesListPresenter(ILogger logger,MediaContract.MoviesInteractor interactor) {
+        return new MoviesListPresenterImpl(logger,interactor);
     }
 
     @ViewScope

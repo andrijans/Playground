@@ -7,14 +7,14 @@ import java.util.List;
  * Created by andrijanstankovic on 10/02/2017.
  */
 
-public class ListMoviesResult {
-    private List<BaseModel> results=new ArrayList<>();
+public class ListMediaResult {
+    private List<MediaItemDetails> results=new ArrayList<>();
 
-    public List<BaseModel> getResults() {
+    public List<MediaItemDetails> getResults() {
         return results;
     }
 
-    public void setResults(List<BaseModel> results) {
+    public void setResults(List<MediaItemDetails> results) {
         this.results = results;
     }
 }

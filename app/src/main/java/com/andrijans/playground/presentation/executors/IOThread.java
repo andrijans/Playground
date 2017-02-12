@@ -1,4 +1,6 @@
-package com.andrijans.playground.domain.abstraction;
+package com.andrijans.playground.presentation.executors;
+
+import com.andrijans.playground.framework.contract.IWorkerThread;
 
 import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;

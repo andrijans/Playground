@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.andrijans.playground.R;
 import com.andrijans.playground.framework.api.model.BaseModel;
+import com.andrijans.playground.framework.api.model.MediaItemDetails;
 import com.andrijans.playground.presentation.common.adapters.MediaListAdapter;
 import com.andrijans.playground.presentation.common.contract.MediaContract;
 
@@ -63,9 +64,9 @@ public class MediaListView extends RelativeLayout implements MediaContract.View 
     }
 
     @Override
-    public void setData(List<BaseModel> data) {
+    public void setData(List<MediaItemDetails> data) {
         mRvShows.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        adapter = new MediaListAdapter(data);
+        adapter = new MediaListAdapter(presenter,data);
         mRvShows.setAdapter(adapter);
 
     }

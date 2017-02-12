@@ -1,9 +1,9 @@
-package com.andrijans.playground.presentation.mainactivity;
+package com.andrijans.playground.presentation.main;
 
 import com.andrijans.playground.framework.api.IApiService;
 import com.andrijans.playground.framework.api.interactor.Listener;
 import com.andrijans.playground.framework.api.interactor.SubscriptionBag;
-import com.andrijans.playground.framework.api.model.ListMoviesResult;
+import com.andrijans.playground.framework.api.model.ListMediaResult;
 
 import javax.inject.Inject;
 
@@ -23,7 +23,7 @@ public class MainActivityInteractor implements MainActivityContract.Interactor {
 
 
     @Override
-    public void getNowPlayingMovies(Listener<ListMoviesResult> listener) {
+    public void getNowPlayingMovies(Listener<ListMediaResult> listener) {
         subscriptionBag.add(apiService.getNowPlaying(),listener);
     }
 

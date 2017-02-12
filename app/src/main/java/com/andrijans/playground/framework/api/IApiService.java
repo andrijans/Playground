@@ -1,7 +1,7 @@
 package com.andrijans.playground.framework.api;
 
 import com.andrijans.playground.framework.api.model.CastResult;
-import com.andrijans.playground.framework.api.model.ListMoviesResult;
+import com.andrijans.playground.framework.api.model.ListMediaResult;
 import com.andrijans.playground.framework.api.model.MediaItemDetails;
 import com.andrijans.playground.framework.api.model.SearchData;
 
@@ -48,9 +48,9 @@ public interface IApiService {
     );
 
     @GET("movie/now_playing")
-    Observable<ListMoviesResult> getNowPlaying();
+    Observable<ListMediaResult> getNowPlaying();
 
     @GET("tv/popular")
-    Observable<ListMoviesResult> getPopularShows();
+    Observable<ListMediaResult> getPopularShows();
 
 }

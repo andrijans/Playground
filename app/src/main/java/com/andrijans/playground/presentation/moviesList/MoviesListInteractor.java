@@ -3,7 +3,7 @@ package com.andrijans.playground.presentation.moviesList;
 import com.andrijans.playground.framework.api.IApiService;
 import com.andrijans.playground.framework.api.interactor.Listener;
 import com.andrijans.playground.framework.api.interactor.SubscriptionBag;
-import com.andrijans.playground.framework.api.model.ListMoviesResult;
+import com.andrijans.playground.framework.api.model.ListMediaResult;
 import com.andrijans.playground.presentation.common.contract.MediaContract;
 
 import javax.inject.Inject;
@@ -23,7 +23,7 @@ public class MoviesListInteractor implements MediaContract.MoviesInteractor {
     }
 
     @Override
-    public void getNowPlayingMovies(Listener<ListMoviesResult> listener) {
+    public void getNowPlayingMovies(Listener<ListMediaResult> listener) {
         subscriptionBag.add(apiService.getNowPlaying(), listener);
     }
 

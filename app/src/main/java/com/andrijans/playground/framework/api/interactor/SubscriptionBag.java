@@ -1,7 +1,7 @@
 package com.andrijans.playground.framework.api.interactor;
 
-import com.andrijans.playground.domain.abstraction.IResultThread;
-import com.andrijans.playground.domain.abstraction.IWorkerThread;
+import com.andrijans.playground.framework.contract.IResultThread;
+import com.andrijans.playground.framework.contract.IWorkerThread;
 
 import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;

@@ -1,4 +1,4 @@
-package com.andrijans.playground.presentation.mainactivity;
+package com.andrijans.playground.presentation.main;
 
 import android.support.v4.view.PagerAdapter;
 import android.view.View;

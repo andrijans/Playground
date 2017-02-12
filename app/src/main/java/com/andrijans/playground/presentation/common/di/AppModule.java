@@ -2,12 +2,14 @@ package com.andrijans.playground.presentation.common.di;
 
 import android.app.Application;
 
-import com.andrijans.playground.domain.abstraction.IOThread;
-import com.andrijans.playground.domain.abstraction.IResultThread;
-import com.andrijans.playground.domain.abstraction.IWorkerThread;
-import com.andrijans.playground.domain.abstraction.UIThread;
 import com.andrijans.playground.framework.api.interactor.SubscriptionBag;
+import com.andrijans.playground.framework.contract.ILogger;
+import com.andrijans.playground.framework.contract.IResultThread;
+import com.andrijans.playground.framework.contract.IWorkerThread;
+import com.andrijans.playground.framework.monitoring.Logger;
 import com.andrijans.playground.presentation.Navigator;
+import com.andrijans.playground.presentation.executors.IOThread;
+import com.andrijans.playground.presentation.executors.UIThread;
 
 import javax.inject.Singleton;
 
@@ -37,6 +39,11 @@ public class AppModule {
         return new Navigator();
     }
 
+    @Provides
+    @Singleton
+    ILogger provideLogger() {
+        return new Logger();
+    }
 
     @Provides
     @Singleton

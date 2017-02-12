@@ -1,7 +1,10 @@
 package com.andrijans.playground.presentation.moviesList;
 
 import com.andrijans.playground.framework.api.interactor.Listener;
-import com.andrijans.playground.framework.api.model.ListMoviesResult;
+import com.andrijans.playground.framework.api.model.ListMediaResult;
+import com.andrijans.playground.framework.api.model.MediaItemDetails;
+import com.andrijans.playground.framework.contract.ILogger;
+import com.andrijans.playground.presentation.common.contract.IMediaClickListener;
 import com.andrijans.playground.presentation.common.contract.MediaContract;
 
 /**
@@ -11,9 +14,12 @@ import com.andrijans.playground.presentation.common.contract.MediaContract;
 public class MoviesListPresenterImpl implements MediaContract.MoviesPresenter {
     MediaContract.View view;
     MediaContract.MoviesInteractor interactor;
+    ILogger logger;
+    IMediaClickListener mediaClickListener;
 
-    public MoviesListPresenterImpl(MediaContract.MoviesInteractor interactor) {
+    public MoviesListPresenterImpl(ILogger logger, MediaContract.MoviesInteractor interactor) {
         this.interactor = interactor;
+        this.logger=logger;
     }
 
     @Override
@@ -22,16 +28,26 @@ public class MoviesListPresenterImpl implements MediaContract.MoviesPresenter {
     }
 
     @Override
+    public void addMediaClickListener(IMediaClickListener mediaClickListener) {
+        this.mediaClickListener=mediaClickListener;
+    }
+
+    @Override
+    public void mediaItemClicked(MediaItemDetails details) {
+        mediaClickListener.mediaItemClicked(details);
+    }
+
+    @Override
     public void onCreate() {
-        interactor.getNowPlayingMovies(new Listener<ListMoviesResult>() {
+        interactor.getNowPlayingMovies(new Listener<ListMediaResult>() {
             @Override
-            public void onNext(ListMoviesResult value) {
+            public void onNext(ListMediaResult value) {
                 view.setData(value.getResults());
             }
 
             @Override
             public void onError(Throwable e) {
-                e.printStackTrace();
+                logger.e(e);
             }
         });
     }

@@ -2,8 +2,10 @@ package com.andrijans.playground.presentation.common.di;
 
 import com.andrijans.playground.framework.api.ApiModule;
 import com.andrijans.playground.framework.api.AuthenticationInterceptor;
-import com.andrijans.playground.presentation.mainactivity.MainActivityModule;
-import com.andrijans.playground.presentation.mainactivity.MainActivitySComponent;
+import com.andrijans.playground.presentation.details.DetailsActivityModule;
+import com.andrijans.playground.presentation.details.DetailsActivitySComponent;
+import com.andrijans.playground.presentation.main.MainActivityModule;
+import com.andrijans.playground.presentation.main.MainActivitySComponent;
 
 import javax.inject.Singleton;
 
@@ -18,6 +20,7 @@ import dagger.Component;
         ApiModule.class})
 public interface AppComponent {
     MainActivitySComponent plus(MainActivityModule module);
+    DetailsActivitySComponent plus(DetailsActivityModule module);
 
     AuthenticationInterceptor inject(AuthenticationInterceptor authenticationInterceptor);
 }
