@@ -20,7 +20,7 @@ import com.andrijans.playground.R;
 import com.andrijans.playground.framework.api.model.MediaItemDetails;
 import com.andrijans.playground.presentation.App;
 import com.andrijans.playground.presentation.BaseActivity;
-import com.andrijans.playground.presentation.common.contract.MediaContract;
+import com.andrijans.playground.presentation.common.views.contracts.MediaContract;
 import com.andrijans.playground.presentation.common.views.MediaListView;
 import com.andrijans.playground.presentation.common.views.NonSwipeableViewPager;
 

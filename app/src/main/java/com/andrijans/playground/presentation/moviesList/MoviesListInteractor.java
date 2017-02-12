@@ -4,7 +4,7 @@ import com.andrijans.playground.framework.api.IApiService;
 import com.andrijans.playground.framework.api.interactor.Listener;
 import com.andrijans.playground.framework.api.interactor.SubscriptionBag;
 import com.andrijans.playground.framework.api.model.ListMediaResult;
-import com.andrijans.playground.presentation.common.contract.MediaContract;
+import com.andrijans.playground.presentation.common.views.contracts.MediaContract;
 
 import javax.inject.Inject;
 

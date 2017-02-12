@@ -2,7 +2,7 @@ package com.andrijans.playground.presentation.main;
 
 import com.andrijans.playground.framework.api.model.MediaItemDetails;
 import com.andrijans.playground.presentation.common.contract.IMediaClickListener;
-import com.andrijans.playground.presentation.common.contract.MediaContract;
+import com.andrijans.playground.presentation.common.views.contracts.MediaContract;
 
 /**
  * Created by andrijanstankovic on 08/02/2017.
@@ -10,13 +10,11 @@ import com.andrijans.playground.presentation.common.contract.MediaContract;
 
 public class MainActivityPresenterImpl implements MainActivityContract.Presenter, IMediaClickListener {
     MainActivityContract.View view;
-    MainActivityContract.Interactor interactor;
     MediaContract.MoviesPresenter moviesPresenter;
     MediaContract.ShowsPresenter showsPresenter;
 
-    public MainActivityPresenterImpl(MainActivityContract.View view, MainActivityContract.Interactor interactor) {
+    public MainActivityPresenterImpl(MainActivityContract.View view) {
         this.view = view;
-        this.interactor = interactor;
     }
 
     @Override

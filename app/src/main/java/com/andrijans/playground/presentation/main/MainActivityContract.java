@@ -1,12 +1,9 @@
 package com.andrijans.playground.presentation.main;
 
-import com.andrijans.playground.framework.api.interactor.Listener;
-import com.andrijans.playground.framework.api.model.ListMediaResult;
 import com.andrijans.playground.framework.api.model.MediaItemDetails;
-import com.andrijans.playground.presentation.common.contract.IBaseInteractor;
 import com.andrijans.playground.presentation.common.contract.IBasePresenter;
 import com.andrijans.playground.presentation.common.contract.IBaseView;
-import com.andrijans.playground.presentation.common.contract.MediaContract;
+import com.andrijans.playground.presentation.common.views.contracts.MediaContract;
 
 /**
  * Created by andrijanstankovic on 08/02/2017.
@@ -26,7 +23,4 @@ public class MainActivityContract {
 
     }
 
-    public interface Interactor extends IBaseInteractor {
-        void getNowPlayingMovies(Listener<ListMediaResult> listener);
-    }
 }

@@ -1,7 +1,7 @@
 package com.andrijans.playground.presentation.main;
 
 import com.andrijans.playground.framework.contract.ILogger;
-import com.andrijans.playground.presentation.common.contract.MediaContract;
+import com.andrijans.playground.presentation.common.views.contracts.MediaContract;
 import com.andrijans.playground.presentation.common.di.ViewScope;
 import com.andrijans.playground.presentation.moviesList.MoviesListInteractor;
 import com.andrijans.playground.presentation.moviesList.MoviesListPresenterImpl;
@@ -30,8 +30,8 @@ public class MainActivityModule {
 
     @ViewScope
     @Provides
-    MainActivityContract.Presenter provideMainActivityPresenter(MainActivityInteractor interactor) {
-        return new MainActivityPresenterImpl(view, interactor);
+    MainActivityContract.Presenter provideMainActivityPresenter() {
+        return new MainActivityPresenterImpl(view);
     }
 
     @ViewScope

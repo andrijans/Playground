@@ -1,9 +1,12 @@
-package com.andrijans.playground.presentation.common.contract;
+package com.andrijans.playground.presentation.common.views.contracts;
 
 import com.andrijans.playground.framework.api.interactor.Listener;
-import com.andrijans.playground.framework.api.model.BaseModel;
 import com.andrijans.playground.framework.api.model.ListMediaResult;
 import com.andrijans.playground.framework.api.model.MediaItemDetails;
+import com.andrijans.playground.presentation.common.contract.IBaseInteractor;
+import com.andrijans.playground.presentation.common.contract.IBasePresenter;
+import com.andrijans.playground.presentation.common.contract.IBaseView;
+import com.andrijans.playground.presentation.common.contract.IMediaClickListener;
 
 import java.util.List;
 
@@ -27,7 +30,7 @@ public class MediaContract {
 
     public interface ShowsPresenter extends Presenter{}
 
-    public interface ShowsInteractor extends IBaseInteractor{
+    public interface ShowsInteractor extends IBaseInteractor {
         void getPopularShows(Listener<ListMediaResult> listener);
     }
 

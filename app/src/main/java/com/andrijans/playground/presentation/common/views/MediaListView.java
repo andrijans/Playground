@@ -11,10 +11,9 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.andrijans.playground.R;
-import com.andrijans.playground.framework.api.model.BaseModel;
 import com.andrijans.playground.framework.api.model.MediaItemDetails;
 import com.andrijans.playground.presentation.common.adapters.MediaListAdapter;
-import com.andrijans.playground.presentation.common.contract.MediaContract;
+import com.andrijans.playground.presentation.common.views.contracts.MediaContract;
 
 import java.util.List;
 
