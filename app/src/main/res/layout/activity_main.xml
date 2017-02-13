@@ -24,6 +24,7 @@
             android:background="@color/colorPrimary"
             app:contentInsetStartWithNavigation="0dp"
             app:theme="@style/ToolBarStyle"
+            app:titleTextAppearance="@style/TitleCollapsed"
             android:layout_height="?attr/actionBarSize">
 
         </android.support.v7.widget.Toolbar>

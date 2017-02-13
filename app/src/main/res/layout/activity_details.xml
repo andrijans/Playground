@@ -9,6 +9,7 @@
     tools:context="com.andrijans.playground.presentation.details.DetailsActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/abl_appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -19,7 +20,9 @@
             android:layout_height="wrap_content"
             android:fadingEdgeLength="8dp"
             app:contentScrim="@color/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:collapsedTitleTextAppearance="@style/TitleCollapsed"
+            app:expandedTitleTextAppearance="@style/TitleExpanded">
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/iv_backdropImage"
@@ -29,17 +32,40 @@
                 app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
                 app:viewAspectRatio="1.78"/>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:background="@drawable/scrim_top"
+                app:layout_collapseMode="pin"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/scrim_bottom"/>
+
+
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:theme="@style/ToolBarStyle"
                 app:contentInsetStartWithNavigation="16dp"
                 app:layout_collapseMode="pin"
                 app:layout_scrollFlags="scroll|enterAlways"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:theme="@style/ToolBarStyle"/>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:background="@drawable/rating_background"
+        android:clickable="false"
+        app:layout_anchor="@id/abl_appBarLayout"
+        app:layout_anchorGravity="bottom|right|end"/>
 
     <include
         layout="@layout/content_details"

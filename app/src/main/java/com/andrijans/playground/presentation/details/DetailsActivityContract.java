@@ -14,9 +14,12 @@ public class DetailsActivityContract {
         void setMediaTitle(String title);
         void setOverviewText(String text);
         void setGenres(String genres);
+        void setMediaRating(String rating);
+        void closeScreen();
     }
 
     public interface Presenter extends IBasePresenter{
         void bindModel(MediaItemDetails data);
+        void navigationBackButtonClicked();
     }
 }

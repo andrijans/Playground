@@ -29,6 +29,8 @@ public class DetailsActivityPresenterImpl implements DetailsActivityContract.Pre
 
         String genres = getGenreString(data.getGenreIds()).toString();
         view.setGenres(genres);
+
+        view.setMediaRating(String.valueOf(data.getVoteAverage()));
     }
 
     @Override
@@ -49,6 +51,11 @@ public class DetailsActivityPresenterImpl implements DetailsActivityContract.Pre
     @Override
     public void bindModel(MediaItemDetails data) {
         this.data = data;
+    }
+
+    @Override
+    public void navigationBackButtonClicked() {
+        view.closeScreen();
     }
 
     private StringBuilder getGenreString(List<Integer> genreList) {

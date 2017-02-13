@@ -2,10 +2,14 @@ package com.andrijans.playground.presentation.details;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.andrijans.playground.R;
@@ -31,6 +35,7 @@ public class DetailsActivity extends BaseActivity implements DetailsActivityCont
     @BindView (R.id.genre) TextView mGenre;
     @BindView (R.id.tv_overviewTitle) TextView mTvOverviewTitle;
     @BindView (R.id.tv_overview) TextView mTvOverview;
+    @BindView (R.id.btn_rating) FloatingActionButton mBtnRating;
 
     public static Intent getCallingIntent(Context context, MediaItemDetails data) {
         Intent intent = new Intent(context, DetailsActivity.class);
@@ -43,9 +48,7 @@ public class DetailsActivity extends BaseActivity implements DetailsActivityCont
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         ButterKnife.bind(this);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+       initToolbar();
 
         presenter.bindModel((MediaItemDetails) getIntent().getSerializableExtra(MEDIA_ITEM_INTENT_KEY));
         presenter.onCreate();
@@ -77,5 +80,22 @@ public class DetailsActivity extends BaseActivity implements DetailsActivityCont
     @Override
     public void setGenres(String genres) {
         mGenre.setText(genres);
+    }
+
+    @Override
+    public void setMediaRating(String rating) {
+       mBtnRating.setImageBitmap(Utils.textAsBitmap(rating,40, ContextCompat.getColor(this,R.color.textPrimaryDark)));
+    }
+
+    @Override
+    public void closeScreen() {
+        finish();
+    }
+
+    private void initToolbar(){
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        mToolbar.setNavigationOnClickListener(view -> presenter.navigationBackButtonClicked());
     }
 }
