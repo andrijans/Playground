@@ -9,7 +9,12 @@ import com.andrijans.playground.presentation.common.contract.IBaseView;
  */
 
 public class DetailsActivityContract {
-    public interface View extends IBaseView{}
+    public interface View extends IBaseView{
+        void setBackdropImage(String imageUrl);
+        void setMediaTitle(String title);
+        void setOverviewText(String text);
+        void setGenres(String genres);
+    }
 
     public interface Presenter extends IBasePresenter{
         void bindModel(MediaItemDetails data);

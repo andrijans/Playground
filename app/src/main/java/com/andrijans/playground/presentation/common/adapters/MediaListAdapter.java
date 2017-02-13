@@ -5,13 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.andrijans.playground.R;
 import com.andrijans.playground.framework.api.model.MediaItemDetails;
-import com.andrijans.playground.presentation.common.views.contracts.MediaContract;
 import com.andrijans.playground.presentation.common.utils.Utils;
-import com.bumptech.glide.Glide;
+import com.andrijans.playground.presentation.common.views.contracts.MediaContract;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
@@ -29,7 +28,7 @@ public class MediaListAdapter extends RecyclerView.Adapter<MediaListAdapter.View
 
     public MediaListAdapter(MediaContract.Presenter presenter, List<MediaItemDetails> data) {
         this.data = data;
-        this.presenter=presenter;
+        this.presenter = presenter;
     }
 
     @Override
@@ -41,7 +40,7 @@ public class MediaListAdapter extends RecyclerView.Adapter<MediaListAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Glide.with(context).load(Utils.getPosterUri(data.get(position).getPosterPath())).into(holder.mIvPoster);
+        holder.mIvPoster.setImageURI(Utils.getPosterUri(data.get(position).getPosterPath()));
         holder.mIvPoster.setOnClickListener(view -> presenter.mediaItemClicked(data.get(position)));
     }
 
@@ -51,7 +50,7 @@ public class MediaListAdapter extends RecyclerView.Adapter<MediaListAdapter.View
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView (R.id.iv_poster) ImageView mIvPoster;
+        @BindView (R.id.iv_poster) SimpleDraweeView mIvPoster;
 
         public ViewHolder(View itemView) {
             super(itemView);
