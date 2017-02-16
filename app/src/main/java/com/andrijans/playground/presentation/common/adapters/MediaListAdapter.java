@@ -49,6 +49,12 @@ public class MediaListAdapter extends RecyclerView.Adapter<MediaListAdapter.View
         return data.size();
     }
 
+    public void appendData(List<MediaItemDetails> data) {
+        int lastItemPos = data.size();
+        data.addAll(data);
+        notifyItemRangeChanged(lastItemPos, data.size());
+    }
+
     static class ViewHolder extends RecyclerView.ViewHolder {
         @BindView (R.id.iv_poster) SimpleDraweeView mIvPoster;
 

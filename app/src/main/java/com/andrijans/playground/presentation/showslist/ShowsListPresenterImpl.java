@@ -7,6 +7,9 @@ import com.andrijans.playground.framework.contract.ILogger;
 import com.andrijans.playground.presentation.common.contract.IMediaClickListener;
 import com.andrijans.playground.presentation.common.views.contracts.MediaContract;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by andrijanstankovic on 11/02/2017.
  */
@@ -16,6 +19,8 @@ public class ShowsListPresenterImpl implements MediaContract.ShowsPresenter {
     private MediaContract.ShowsInteractor interactor;
     private ILogger logger;
     private IMediaClickListener mediaClickListener;
+    private List<MediaItemDetails> data = new ArrayList<>();
+    private int currentPage = 1;
 
     public ShowsListPresenterImpl(ILogger logger, MediaContract.ShowsInteractor interactor) {
         this.interactor = interactor;
@@ -24,10 +29,11 @@ public class ShowsListPresenterImpl implements MediaContract.ShowsPresenter {
 
     @Override
     public void onCreate() {
-        interactor.getPopularShows(new Listener<ListMediaResult>() {
+        interactor.getPopularShows(currentPage, new Listener<ListMediaResult>() {
             @Override
             public void onNext(ListMediaResult value) {
-                view.setData(value.getResults());
+                data = value.getResults();
+                view.setData(data);
             }
 
             @Override
@@ -66,5 +72,22 @@ public class ShowsListPresenterImpl implements MediaContract.ShowsPresenter {
     @Override
     public void mediaItemClicked(MediaItemDetails details) {
         mediaClickListener.mediaItemClicked(details);
+    }
+
+    @Override
+    public void loadMore(int currentPage) {
+        this.currentPage = currentPage;
+        interactor.getPopularShows(this.currentPage, new Listener<ListMediaResult>() {
+            @Override
+            public void onNext(ListMediaResult value) {
+                data.addAll(value.getResults());
+                view.appendData(value.getResults());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                logger.e(e);
+            }
+        });
     }
 }

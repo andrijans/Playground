@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import com.andrijans.playground.R;
 import com.andrijans.playground.framework.api.model.MediaItemDetails;
 import com.andrijans.playground.presentation.common.adapters.MediaListAdapter;
+import com.andrijans.playground.presentation.common.views.adapters.PagingRecyclerOnScrollListener;
 import com.andrijans.playground.presentation.common.views.contracts.MediaContract;
 
 import java.util.List;
@@ -64,9 +65,21 @@ public class MediaListView extends RelativeLayout implements MediaContract.View 
 
     @Override
     public void setData(List<MediaItemDetails> data) {
-        mRvShows.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        adapter = new MediaListAdapter(presenter,data);
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
+        mRvShows.setLayoutManager(layoutManager);
+        mRvShows.addOnScrollListener(new PagingRecyclerOnScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int currentPage) {
+                presenter.loadMore(currentPage);
+            }
+        });
+        adapter = new MediaListAdapter(presenter, data);
         mRvShows.setAdapter(adapter);
 
+    }
+
+    @Override
+    public void appendData(List<MediaItemDetails> data) {
+        adapter.appendData(data);
     }
 }

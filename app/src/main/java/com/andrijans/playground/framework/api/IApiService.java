@@ -48,9 +48,13 @@ public interface IApiService {
     );
 
     @GET("movie/now_playing")
-    Observable<ListMediaResult> getNowPlaying();
+    Observable<ListMediaResult> getNowPlaying(
+            @Query("page") int page
+    );
 
     @GET("tv/popular")
-    Observable<ListMediaResult> getPopularShows();
+    Observable<ListMediaResult> getPopularShows(
+            @Query("page") int page
+    );
 
 }

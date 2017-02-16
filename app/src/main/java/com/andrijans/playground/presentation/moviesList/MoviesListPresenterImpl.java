@@ -7,19 +7,24 @@ import com.andrijans.playground.framework.contract.ILogger;
 import com.andrijans.playground.presentation.common.contract.IMediaClickListener;
 import com.andrijans.playground.presentation.common.views.contracts.MediaContract;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by andrijanstankovic on 11/02/2017.
  */
 
 public class MoviesListPresenterImpl implements MediaContract.MoviesPresenter {
-    MediaContract.View view;
-    MediaContract.MoviesInteractor interactor;
-    ILogger logger;
-    IMediaClickListener mediaClickListener;
+    private MediaContract.View view;
+    private MediaContract.MoviesInteractor interactor;
+    private ILogger logger;
+    private IMediaClickListener mediaClickListener;
+    private List<MediaItemDetails> data = new ArrayList<>();
+    private int currentPage = 1;
 
     public MoviesListPresenterImpl(ILogger logger, MediaContract.MoviesInteractor interactor) {
         this.interactor = interactor;
-        this.logger=logger;
+        this.logger = logger;
     }
 
     @Override
@@ -29,7 +34,7 @@ public class MoviesListPresenterImpl implements MediaContract.MoviesPresenter {
 
     @Override
     public void addMediaClickListener(IMediaClickListener mediaClickListener) {
-        this.mediaClickListener=mediaClickListener;
+        this.mediaClickListener = mediaClickListener;
     }
 
     @Override
@@ -38,11 +43,29 @@ public class MoviesListPresenterImpl implements MediaContract.MoviesPresenter {
     }
 
     @Override
-    public void onCreate() {
-        interactor.getNowPlayingMovies(new Listener<ListMediaResult>() {
+    public void loadMore(int currentPage) {
+        this.currentPage = currentPage;
+        interactor.getNowPlayingMovies(currentPage, new Listener<ListMediaResult>() {
             @Override
             public void onNext(ListMediaResult value) {
-                view.setData(value.getResults());
+                data.addAll(value.getResults());
+                view.appendData(value.getResults());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                logger.e(e);
+            }
+        });
+    }
+
+    @Override
+    public void onCreate() {
+        interactor.getNowPlayingMovies(currentPage, new Listener<ListMediaResult>() {
+            @Override
+            public void onNext(ListMediaResult value) {
+                data = value.getResults();
+                view.setData(data);
             }
 
             @Override

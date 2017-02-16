@@ -28,7 +28,7 @@ public class ShowsListInteractor implements MediaContract.ShowsInteractor {
     }
 
     @Override
-    public void getPopularShows(Listener<ListMediaResult> listener) {
-        subscriptionBag.add(apiService.getPopularShows(),listener);
+    public void getPopularShows(int page, Listener<ListMediaResult> listener) {
+        subscriptionBag.add(apiService.getPopularShows(page),listener);
     }
 }

@@ -23,8 +23,8 @@ public class MoviesListInteractor implements MediaContract.MoviesInteractor {
     }
 
     @Override
-    public void getNowPlayingMovies(Listener<ListMediaResult> listener) {
-        subscriptionBag.add(apiService.getNowPlaying(), listener);
+    public void getNowPlayingMovies(int page, Listener<ListMediaResult> listener) {
+        subscriptionBag.add(apiService.getNowPlaying(page), listener);
     }
 
     @Override

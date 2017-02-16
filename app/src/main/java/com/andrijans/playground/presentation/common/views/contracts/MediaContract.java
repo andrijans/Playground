@@ -18,12 +18,14 @@ public class MediaContract {
     public interface View extends IBaseView {
         void bindPresenter(MediaContract.Presenter presenter);
         void setData(List<MediaItemDetails> data);
+        void appendData(List<MediaItemDetails> data);
     }
 
     public interface Presenter extends IBasePresenter {
         void bindView(MediaContract.View view);
         void addMediaClickListener(IMediaClickListener mediaClickListener);
         void mediaItemClicked(MediaItemDetails details);
+        void loadMore(int currentPage);
     }
 
     public interface MoviesPresenter extends Presenter{}
@@ -31,10 +33,10 @@ public class MediaContract {
     public interface ShowsPresenter extends Presenter{}
 
     public interface ShowsInteractor extends IBaseInteractor {
-        void getPopularShows(Listener<ListMediaResult> listener);
+        void getPopularShows(int page, Listener<ListMediaResult> listener);
     }
 
     public interface MoviesInteractor extends IBaseInteractor{
-        void getNowPlayingMovies(Listener<ListMediaResult> listener);
+        void getNowPlayingMovies(int page, Listener<ListMediaResult> listener);
     }
 }
