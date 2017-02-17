@@ -51,7 +51,7 @@ public class MediaListAdapter extends RecyclerView.Adapter<MediaListAdapter.View
 
     public void appendData(List<MediaItemDetails> data) {
         int lastItemPos = data.size();
-        data.addAll(data);
+        this.data.addAll(data);
         notifyItemRangeChanged(lastItemPos, data.size());
     }
 
