@@ -1,8 +1,8 @@
-package com.andrijans.playground.presentation.details;
+package com.andrijans.playground.presentation.detail;
 
-import com.andrijans.playground.framework.api.model.Genre;
-import com.andrijans.playground.framework.api.model.GenreResult;
-import com.andrijans.playground.framework.api.model.MediaItemDetails;
+import com.andrijans.playground.framework.api.entity.Genre;
+import com.andrijans.playground.framework.api.entity.GenreResult;
+import com.andrijans.playground.framework.api.entity.MediaItemDetails;
 import com.andrijans.playground.presentation.common.constants.Constants;
 import com.google.gson.Gson;
 

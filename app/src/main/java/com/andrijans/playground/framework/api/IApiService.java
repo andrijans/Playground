@@ -1,9 +1,9 @@
 package com.andrijans.playground.framework.api;
 
-import com.andrijans.playground.framework.api.model.CastResult;
-import com.andrijans.playground.framework.api.model.ListMediaResult;
-import com.andrijans.playground.framework.api.model.MediaItemDetails;
-import com.andrijans.playground.framework.api.model.SearchData;
+import com.andrijans.playground.framework.api.entity.CastResult;
+import com.andrijans.playground.framework.api.entity.ListMediaResult;
+import com.andrijans.playground.framework.api.entity.MediaItemDetails;
+import com.andrijans.playground.framework.api.entity.SearchData;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;

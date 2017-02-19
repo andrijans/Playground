@@ -1,4 +1,4 @@
-package com.andrijans.playground.presentation.common.executors;
+package com.andrijans.playground.presentation.common.executor;
 
 import com.andrijans.playground.framework.contract.IWorkerThread;
 

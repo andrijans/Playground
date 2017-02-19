@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
-import com.andrijans.playground.framework.api.model.MediaItemDetails;
-import com.andrijans.playground.presentation.details.DetailsActivity;
+import com.andrijans.playground.framework.api.entity.MediaItemDetails;
+import com.andrijans.playground.presentation.detail.DetailsActivity;
 
 /**
  * Created by andrijanstankovic on 08/02/2017.

@@ -1,6 +1,6 @@
 package com.andrijans.playground.presentation.main;
 
-import com.andrijans.playground.framework.api.model.MediaItemDetails;
+import com.andrijans.playground.framework.api.entity.MediaItemDetails;
 import com.andrijans.playground.presentation.common.contract.IBasePresenter;
 import com.andrijans.playground.presentation.common.contract.IBaseView;
 import com.andrijans.playground.presentation.common.views.contracts.MediaContract;

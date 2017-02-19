@@ -1,8 +1,8 @@
 package com.andrijans.playground.presentation.common.views.contracts;
 
 import com.andrijans.playground.framework.api.interactor.Listener;
-import com.andrijans.playground.framework.api.model.ListMediaResult;
-import com.andrijans.playground.framework.api.model.MediaItemDetails;
+import com.andrijans.playground.framework.api.entity.ListMediaResult;
+import com.andrijans.playground.framework.api.entity.MediaItemDetails;
 import com.andrijans.playground.presentation.common.contract.IBaseInteractor;
 import com.andrijans.playground.presentation.common.contract.IBasePresenter;
 import com.andrijans.playground.presentation.common.contract.IBaseView;
@@ -33,10 +33,10 @@ public class MediaContract {
     public interface ShowsPresenter extends Presenter{}
 
     public interface ShowsInteractor extends IBaseInteractor {
-        void getPopularShows(int page, Listener<ListMediaResult> listener);
+        void getPopularShows(int page, Listener<List<MediaItemDetails>> listener);
     }
 
     public interface MoviesInteractor extends IBaseInteractor{
-        void getNowPlayingMovies(int page, Listener<ListMediaResult> listener);
+        void getNowPlayingMovies(int page, Listener<List<MediaItemDetails>> listener);
     }
 }

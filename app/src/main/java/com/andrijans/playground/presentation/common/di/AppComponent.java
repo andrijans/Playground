@@ -2,8 +2,8 @@ package com.andrijans.playground.presentation.common.di;
 
 import com.andrijans.playground.framework.api.ApiModule;
 import com.andrijans.playground.framework.api.AuthenticationInterceptor;
-import com.andrijans.playground.presentation.details.DetailsActivityModule;
-import com.andrijans.playground.presentation.details.DetailsActivitySComponent;
+import com.andrijans.playground.presentation.detail.DetailsActivityModule;
+import com.andrijans.playground.presentation.detail.DetailsActivitySComponent;
 import com.andrijans.playground.presentation.main.MainActivityModule;
 import com.andrijans.playground.presentation.main.MainActivitySComponent;
 

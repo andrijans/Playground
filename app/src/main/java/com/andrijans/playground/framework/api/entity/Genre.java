@@ -1,4 +1,4 @@
-package com.andrijans.playground.framework.api.model;
+package com.andrijans.playground.framework.api.entity;
 
 import java.io.Serializable;
 

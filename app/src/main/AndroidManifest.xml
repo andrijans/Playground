@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.details.DetailsActivity"
+            android:name=".presentation.detail.DetailsActivity"
             android:label="@string/title_activity_details"
             android:theme="@style/AppTheme">
         </activity>

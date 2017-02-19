@@ -11,8 +11,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.andrijans.playground.R;
-import com.andrijans.playground.framework.api.model.MediaItemDetails;
-import com.andrijans.playground.presentation.common.adapters.MediaListAdapter;
+import com.andrijans.playground.framework.api.entity.MediaItemDetails;
+import com.andrijans.playground.presentation.common.adapter.MediaListAdapter;
 import com.andrijans.playground.presentation.common.views.adapters.PagingRecyclerOnScrollListener;
 import com.andrijans.playground.presentation.common.views.contracts.MediaContract;
 

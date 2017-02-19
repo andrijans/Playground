@@ -1,6 +1,6 @@
 package com.andrijans.playground.presentation.common.contract;
 
-import com.andrijans.playground.framework.api.model.MediaItemDetails;
+import com.andrijans.playground.framework.api.entity.MediaItemDetails;
 
 /**
  * Created by andrijanstankovic on 12/02/2017.

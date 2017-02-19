@@ -1,19 +1,17 @@
-package com.andrijans.playground.presentation.details;
+package com.andrijans.playground.presentation.detail;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.andrijans.playground.R;
-import com.andrijans.playground.framework.api.model.MediaItemDetails;
+import com.andrijans.playground.framework.api.entity.MediaItemDetails;
 import com.andrijans.playground.presentation.App;
 import com.andrijans.playground.presentation.BaseActivity;
 import com.andrijans.playground.presentation.common.utils.Utils;
@@ -36,6 +34,7 @@ public class DetailsActivity extends BaseActivity implements DetailsActivityCont
     @BindView (R.id.tv_overviewTitle) TextView mTvOverviewTitle;
     @BindView (R.id.tv_overview) TextView mTvOverview;
     @BindView (R.id.btn_rating) FloatingActionButton mBtnRating;
+    @BindView (R.id.tv_releaseDate) TextView mTvReleaseDate;
 
     public static Intent getCallingIntent(Context context, MediaItemDetails data) {
         Intent intent = new Intent(context, DetailsActivity.class);
@@ -48,7 +47,7 @@ public class DetailsActivity extends BaseActivity implements DetailsActivityCont
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         ButterKnife.bind(this);
-       initToolbar();
+        initToolbar();
 
         presenter.bindModel((MediaItemDetails) getIntent().getSerializableExtra(MEDIA_ITEM_INTENT_KEY));
         presenter.onCreate();
@@ -84,7 +83,12 @@ public class DetailsActivity extends BaseActivity implements DetailsActivityCont
 
     @Override
     public void setMediaRating(String rating) {
-       mBtnRating.setImageBitmap(Utils.textAsBitmap(rating,40, ContextCompat.getColor(this,R.color.textPrimaryDark)));
+        mBtnRating.setImageBitmap(Utils.textAsBitmap(rating, 40, ContextCompat.getColor(this, R.color.textPrimaryDark)));
+    }
+
+    @Override
+    public void setReleaseDate(String releaseDate) {
+        mTvReleaseDate.setText(releaseDate);
     }
 
     @Override
@@ -92,7 +96,7 @@ public class DetailsActivity extends BaseActivity implements DetailsActivityCont
         finish();
     }
 
-    private void initToolbar(){
+    private void initToolbar() {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

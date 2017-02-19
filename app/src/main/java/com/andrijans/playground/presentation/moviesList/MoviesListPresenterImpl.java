@@ -1,8 +1,7 @@
 package com.andrijans.playground.presentation.moviesList;
 
+import com.andrijans.playground.framework.api.entity.MediaItemDetails;
 import com.andrijans.playground.framework.api.interactor.Listener;
-import com.andrijans.playground.framework.api.model.ListMediaResult;
-import com.andrijans.playground.framework.api.model.MediaItemDetails;
 import com.andrijans.playground.framework.contract.ILogger;
 import com.andrijans.playground.presentation.common.contract.IMediaClickListener;
 import com.andrijans.playground.presentation.common.views.contracts.MediaContract;
@@ -45,32 +44,24 @@ public class MoviesListPresenterImpl implements MediaContract.MoviesPresenter {
     @Override
     public void loadMore(int currentPage) {
         this.currentPage = currentPage;
-        interactor.getNowPlayingMovies(currentPage, new Listener<ListMediaResult>() {
+        interactor.getNowPlayingMovies(currentPage, new Listener<List<MediaItemDetails>>() {
             @Override
-            public void onNext(ListMediaResult value) {
-                data.addAll(value.getResults());
-                view.appendData(value.getResults());
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                logger.e(e);
+            public void onNext(List<MediaItemDetails> value) {
+                addMediaType(value);
+                data.addAll(value);
+                view.appendData(value);
             }
         });
     }
 
     @Override
     public void onCreate() {
-        interactor.getNowPlayingMovies(currentPage, new Listener<ListMediaResult>() {
+        interactor.getNowPlayingMovies(currentPage, new Listener<List<MediaItemDetails>>() {
             @Override
-            public void onNext(ListMediaResult value) {
-                data = value.getResults();
+            public void onNext(List<MediaItemDetails> value) {
+                addMediaType(value);
+                data = value;
                 view.setData(data);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                logger.e(e);
             }
         });
     }
@@ -88,5 +79,10 @@ public class MoviesListPresenterImpl implements MediaContract.MoviesPresenter {
     @Override
     public void onDestroy() {
 
+    }
+
+    private List<MediaItemDetails> addMediaType(List<MediaItemDetails> data){
+        for (MediaItemDetails details:data){details.setType(MediaItemDetails.Type.Movie);}
+        return data;
     }
 }

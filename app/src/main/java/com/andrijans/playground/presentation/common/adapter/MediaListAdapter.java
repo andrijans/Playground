@@ -1,4 +1,4 @@
-package com.andrijans.playground.presentation.common.adapters;
+package com.andrijans.playground.presentation.common.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.andrijans.playground.R;
-import com.andrijans.playground.framework.api.model.MediaItemDetails;
+import com.andrijans.playground.framework.api.entity.MediaItemDetails;
 import com.andrijans.playground.presentation.common.utils.Utils;
 import com.andrijans.playground.presentation.common.views.contracts.MediaContract;
 import com.facebook.drawee.view.SimpleDraweeView;

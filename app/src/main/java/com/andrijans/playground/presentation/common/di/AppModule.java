@@ -8,8 +8,8 @@ import com.andrijans.playground.framework.contract.IResultThread;
 import com.andrijans.playground.framework.contract.IWorkerThread;
 import com.andrijans.playground.framework.monitoring.Logger;
 import com.andrijans.playground.presentation.Navigator;
-import com.andrijans.playground.presentation.common.executors.IOThread;
-import com.andrijans.playground.presentation.common.executors.UIThread;
+import com.andrijans.playground.presentation.common.executor.IOThread;
+import com.andrijans.playground.presentation.common.executor.UIThread;
 
 import javax.inject.Singleton;
 

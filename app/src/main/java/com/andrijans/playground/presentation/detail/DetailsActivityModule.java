@@ -1,4 +1,4 @@
-package com.andrijans.playground.presentation.details;
+package com.andrijans.playground.presentation.detail;
 
 import com.andrijans.playground.presentation.common.di.ViewScope;
 

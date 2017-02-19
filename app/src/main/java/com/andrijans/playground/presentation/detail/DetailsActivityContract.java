@@ -1,6 +1,6 @@
-package com.andrijans.playground.presentation.details;
+package com.andrijans.playground.presentation.detail;
 
-import com.andrijans.playground.framework.api.model.MediaItemDetails;
+import com.andrijans.playground.framework.api.entity.MediaItemDetails;
 import com.andrijans.playground.presentation.common.contract.IBasePresenter;
 import com.andrijans.playground.presentation.common.contract.IBaseView;
 
@@ -15,6 +15,7 @@ public class DetailsActivityContract {
         void setOverviewText(String text);
         void setGenres(String genres);
         void setMediaRating(String rating);
+        void setReleaseDate(String releaseDate);
         void closeScreen();
     }
 

@@ -17,7 +17,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.andrijans.playground.R;
-import com.andrijans.playground.framework.api.model.MediaItemDetails;
+import com.andrijans.playground.framework.api.entity.MediaItemDetails;
 import com.andrijans.playground.presentation.App;
 import com.andrijans.playground.presentation.BaseActivity;
 import com.andrijans.playground.presentation.common.views.contracts.MediaContract;

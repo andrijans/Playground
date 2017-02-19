@@ -10,4 +10,5 @@
     <string name="title_activity_details">DetailsActivity</string>
     <string name="director"><b>Director:</b></string>
     <string name="overview">Overview</string>
+    <string name="release_date">Release date</string>
 </resources>
